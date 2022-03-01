@@ -11,6 +11,7 @@
 		9563E68727CE2E61006FCC2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9563E68627CE2E61006FCC2E /* ContentView.swift */; };
 		9563E68927CE2E62006FCC2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9563E68827CE2E62006FCC2E /* Assets.xcassets */; };
 		9563E68C27CE2E62006FCC2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9563E68B27CE2E62006FCC2E /* Preview Assets.xcassets */; };
+		9563E69427CE3254006FCC2E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9563E69327CE3254006FCC2E /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		9563E68627CE2E61006FCC2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9563E68827CE2E62006FCC2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9563E68B27CE2E62006FCC2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9563E69327CE3254006FCC2E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		9563E68327CE2E61006FCC2E /* Exams-App */ = {
 			isa = PBXGroup;
 			children = (
+				9563E69227CE3248006FCC2E /* Extensions */,
 				9563E68427CE2E61006FCC2E /* Exams_AppApp.swift */,
 				9563E68627CE2E61006FCC2E /* ContentView.swift */,
 				9563E68827CE2E62006FCC2E /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				9563E68B27CE2E62006FCC2E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9563E69227CE3248006FCC2E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9563E69327CE3254006FCC2E /* ColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9563E69427CE3254006FCC2E /* ColorExtension.swift in Sources */,
 				9563E68727CE2E61006FCC2E /* ContentView.swift in Sources */,
 				9563E68527CE2E61006FCC2E /* Exams_AppApp.swift in Sources */,
 			);
