@@ -18,65 +18,81 @@ struct DashboardView: View {
     
     var body: some View {
         
-        ZStack {
-            
-            Color.theme.backgroundCard.edgesIgnoringSafeArea(.all)
-            
-            VStack {
+        NavigationView {
+            ZStack {
                 
-                header
-                
-                examinations
+                Color.theme.backgroundCard.edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     
-                    Text("Attendance")
-                        .font(.interMedium18)
-                        .foregroundColor(.theme.textSecondary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    header
                     
-                    DisclosureGroup(selectedClass.name, isExpanded: $dropdownExpanded) {
-                        ForEach(classes, id: \.self) { className in
-                            if selectedClass.name != className {
-                                Text(className)
-                                    .foregroundColor(.theme.accentPrimary)
-                                    .padding(.vertical, 2)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .onTapGesture {
-                                        //selectedClass = className
-                                        dropdownExpanded = false
-                                    }
+                    examinations
+                    
+                    VStack {
+                        
+                        Text("Attendance")
+                            .font(.interMedium18)
+                            .foregroundColor(.theme.textSecondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        DisclosureGroup(selectedClass.name, isExpanded: $dropdownExpanded) {
+                            ForEach(classes, id: \.self) { className in
+                                if selectedClass.name != className {
+                                    Text(className)
+                                        .foregroundColor(.theme.accentPrimary)
+                                        .padding(.vertical, 2)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .onTapGesture {
+                                            //selectedClass = className
+                                            dropdownExpanded = false
+                                        }
+                                }
                             }
                         }
-                    }
-                    .padding([.vertical, .trailing])
-                    
-                    HStack {
+                        .padding([.vertical, .trailing])
                         
-                        Spacer()
-                        
-                        AttendanceProgressView(attendance: Float(selectedClass.classAttendance))
-                            .frame(width: 100, height: 100)
-                            .padding()
-
-                        Spacer(minLength: 30)
+                        HStack {
                             
-                        attendanceStats
-                                                
-                        Spacer()
+                            Spacer()
+                            
+                            AttendanceProgressView(attendance: Float(selectedClass.classAttendance))
+                                .frame(width: 100, height: 100)
+                                .padding()
+
+                            Spacer(minLength: 30)
+                                
+                            attendanceStats
+                                                    
+                            Spacer()
+                            
+                        }
                         
+                        HStack {
+                            Image(systemName: "bell.fill")
+                            
+                            Text("Your attendance seems to be low in \(selectedClass.classNameAbbreivation)")
+                                .font(.robotoRegular)
+                        }
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 10)
+                        .foregroundColor(.theme.accentBlue)
+                        .background(Color.theme.accentBlueSecondary.opacity(0.2))
+                        .cornerRadius(5)
+                        .padding(.bottom, 12)
+                        .opacity(selectedClass.classAttendance < 75.0 ? 1.0 : 0.0)
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 18)
+                    .background(.white)
                     
+                    Spacer()
                 }
-                .padding(.horizontal, 20)
-                .padding(.top, 18)
-                
-                Spacer()
                 
             }
-            
+            .navigationTitle("")
+            .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
     }
 }
 
@@ -110,7 +126,7 @@ extension DashboardView {
             
         }
         .padding(.horizontal, 20)
-        .padding(.vertical, 40)
+        .padding(.vertical, 36)
         
     }
     

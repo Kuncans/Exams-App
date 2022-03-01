@@ -16,15 +16,16 @@ struct AttendanceProgressView: View {
         ZStack {
             
             Circle()
-                .stroke(lineWidth: 12)
-                .foregroundColor(.theme.backgroundCard)
+                .stroke(lineWidth: 8)
+                .foregroundColor(Color("ProgressViewBackground"))
             
             Circle()
-                .trim(from: 0.0, to: CGFloat(attendance))
+                .trim(from: 0.0, to: (CGFloat(attendance) / 100))
                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
                 .foregroundColor(.theme.accentGreen)
                 .rotationEffect(Angle(degrees: 270))
                 .animation(.spring(response: 0.7, dampingFraction: 0.7, blendDuration: 1.5), value: attendance)
+                .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
             
             Text("\(attendance, specifier: "%.0f")%")
                 .font(.title)
@@ -32,7 +33,6 @@ struct AttendanceProgressView: View {
                 .animation(.easeInOut, value: attendance)
             
         }
-        
     }
 }
 

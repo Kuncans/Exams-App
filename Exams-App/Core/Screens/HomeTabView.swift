@@ -12,6 +12,7 @@ struct HomeTabView: View {
     @State private var selection = 3
     
     var body: some View {
+        
         TabView(selection: $selection) {
             PlaceholderView()
                 .tabItem {
@@ -24,19 +25,22 @@ struct HomeTabView: View {
                 .tabItem {
                     Image(systemName: "swift")
                     Text("Page 2")
-                }.tag(2)
+                }
+                .tag(2)
             
             DashboardView(user: MockUser.user)
                 .tabItem {
                     Image(systemName: "squareshape.split.3x3")
                     Text("Dashboard")
-                }.tag(3)            
+                }
+                .tag(3)
             
             Text("Exams")
                 .tabItem {
                     Image(systemName: "graduationcap")
                     Text("Exams")
-                }.tag(4)
+                }
+                .tag(4)
             
             PlaceholderView()
                 .tabItem {

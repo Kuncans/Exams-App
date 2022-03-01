@@ -18,9 +18,7 @@ struct Exams_AppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                HomeTabView()
-            }
+            HomeTabView()            
         }
     }
 }

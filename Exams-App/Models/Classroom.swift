@@ -17,11 +17,10 @@ struct Classroom {
         classesLeft + classesMissed + classesAttended
     }
     var classAttendance: Double {
-        //return Double(((classesAttended / (classesAttended + classesMissed)) * 100))
         return (Double(classesAttended) / Double(classesMissed + classesAttended)) * 100
     }
     
-    lazy var classNameAbbreivation: String = {
+    var classNameAbbreivation: String {
         let nameSplit = name.split { String($0).range(of: #"\w"#, options: .regularExpression) == nil }
         var abbreviation: String = ""
         for word in nameSplit {
@@ -30,25 +29,16 @@ struct Classroom {
             }
         }
         return abbreviation
-    }()
+    }
 
 }
 
 struct MockClassroom {
     
-    static let classroom = Classroom(name: "Object Oriented Programming in Java", classesAttended: 34, classesMissed: 6, classesLeft: 30)
+    static let classroom = Classroom(name: "Object Oriented Programming in Java", classesAttended: 34, classesMissed: 12, classesLeft: 30)
     
 }
 
-//    var classNameAbbreviation: String {
-//        let nameSplit = name.split { String($0).range(of: #"\w"#, options: .regularExpression) == nil }
-//        var abbreviation: String = ""
-//        for word in nameSplit {
-//            if word.count > 3 {
-//                abbreviation += word.prefix(1).capitalized
-//            }
-//        }
-//        return abbreviation
-//    }
+
     
 
