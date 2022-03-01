@@ -16,6 +16,10 @@ struct Classroom {
     var classesTotal: Int {
         classesLeft + classesMissed + classesAttended
     }
+    var classAttendance: Double {
+        //return Double(((classesAttended / (classesAttended + classesMissed)) * 100))
+        return (Double(classesAttended) / Double(classesMissed + classesAttended)) * 100
+    }
     
     lazy var classNameAbbreivation: String = {
         let nameSplit = name.split { String($0).range(of: #"\w"#, options: .regularExpression) == nil }
@@ -27,6 +31,13 @@ struct Classroom {
         }
         return abbreviation
     }()
+
+}
+
+struct MockClassroom {
+    
+    static let classroom = Classroom(name: "Object Oriented Programming in Java", classesAttended: 34, classesMissed: 6, classesLeft: 30)
+    
 }
 
 //    var classNameAbbreviation: String {

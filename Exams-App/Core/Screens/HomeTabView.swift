@@ -13,24 +13,24 @@ struct HomeTabView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            Text("Placeholder 1")
+            PlaceholderView()
                 .tabItem {
                     Image(systemName: "swift")
                     Text("Page 1")
                 }
                 .tag(1)
             
-            Text("Placeholder 2")
+            PlaceholderView()
                 .tabItem {
                     Image(systemName: "swift")
                     Text("Page 2")
                 }.tag(2)
             
-            Text("Dashboard")
+            DashboardView(user: MockUser.user)
                 .tabItem {
                     Image(systemName: "squareshape.split.3x3")
                     Text("Dashboard")
-                }.tag(3)
+                }.tag(3)            
             
             Text("Exams")
                 .tabItem {
@@ -38,7 +38,7 @@ struct HomeTabView: View {
                     Text("Exams")
                 }.tag(4)
             
-            Text("Placeholder 5")
+            PlaceholderView()
                 .tabItem {
                     Image(systemName: "swift")
                     Text("Page 5")

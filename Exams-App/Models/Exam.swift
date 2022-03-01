@@ -23,3 +23,18 @@ struct Exam {
     let questions: [String:Bool]
     
 }
+
+struct MockExam {
+    
+    static let exam = Exam(classroom: MockClassroom.classroom,
+                           syllabus: "MCQs",
+                           dateString: "",
+                           timeString: "",
+                           duration: "",
+                           timeframe: "3 pm - 6 pm",
+                           marks: 20,
+                           category: "Internal",
+                           instructions: "Take the test",
+                           questions: ["Option 1": true])
+    
+}
