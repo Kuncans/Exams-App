@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct Exams_AppApp: App {
+    
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Color.theme.accentSecondary)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeTabView()
         }
     }
 }
