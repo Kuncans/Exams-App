@@ -23,6 +23,10 @@ extension Font {
         Font.custom("Inter-Regular", size: 14)
     }
     
+    static var interRegular16: Font {
+        Font.custom("Inter-Regular", size: 16)
+    }
+    
     //500
     static var interMedium10: Font {
         Font.custom("Inter-Medium", size: 10)

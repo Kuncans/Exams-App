@@ -60,33 +60,36 @@ struct NewExamView: View {
                     
                     HStack {
                         Text("Classroom:")
-                            .font(.interRegular14)
-                            .padding(.trailing)
-                            .frame(width: 90)
+                            .font(.interRegular16)
+                            .frame(width: 100, alignment: .leading)
+                            .padding(.leading)
                         Spacer()
                         ZStack {
                             
                             
                             DisclosureGroup(vm.newExamClassroom?.name ?? "Select Classroom", isExpanded: $dropdownExpanded) {
-                                ForEach(vm.classrooms, id: \.self) { classroom in
-                                    if vm.newExamClassroom?.name != classroom.name {
-                                        Spacer(minLength: 5.0)
-                                        VStack {
-                                            Text(classroom.name)
-                                                .font(.interRegular12)
-                                                .foregroundColor(.theme.accentSecondary)
-                                                .padding(.vertical, 4)
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                                .onTapGesture {
-                                                    vm.newExamClassroom = classroom
-                                                    withAnimation {
-                                                        dropdownExpanded = false
+                                ScrollView (showsIndicators: false) {
+                                    ForEach(vm.classrooms, id: \.self) { classroom in
+                                        if vm.newExamClassroom?.name != classroom.name {
+                                            Spacer(minLength: 5.0)
+                                            VStack {
+                                                Text(classroom.name)
+                                                    .font(.interRegular12)
+                                                    .foregroundColor(.theme.accentSecondary)
+                                                    .padding(.vertical, 4)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                    .onTapGesture {
+                                                        vm.newExamClassroom = classroom
+                                                        withAnimation {
+                                                            dropdownExpanded = false
+                                                        }
                                                     }
-                                                }
-                                                .lineLimit(1)
+                                                    .lineLimit(1)
+                                            }
                                         }
                                     }
                                 }
+                                .frame(maxHeight: 100)
                             }
                             .padding(.horizontal, 20)
                             .padding(.vertical, 8)
@@ -95,28 +98,33 @@ struct NewExamView: View {
                             .foregroundColor((vm.newExamClassroom != nil) ? Color.theme.accentSecondary : Color.theme.textSecondary)
                             .font(.interRegular14)
                         }
-                        .frame(width: 250, height: 45, alignment: .leading)
+                        .frame(width: 230, height: 45, alignment: .leading)
+                        
                     }
                     .padding(.horizontal)
+                    .padding(.bottom)
                     
                     HStack {
                         Text("Syllabus:")
-                            .font(.interRegular14)
-                            .padding(.trailing)
-                            .frame(width: 90, alignment: .leading)
+                            .font(.interRegular16)
+                            .frame(width: 100, alignment: .leading)
+                            .padding(.leading)
                         
                         TextField("Enter modules here", text: $vm.newExamModule)
                             .padding(.horizontal, 20)
                             .padding(.vertical, 12)
-                            .frame(maxWidth: .infinity)
+                            .frame(width: 230, height: 45, alignment: .leading)
                             .background(RoundedRectangle(cornerRadius: 5).fill(Color.theme.backgroundCard))
                             .font(.interRegular14)
                             .foregroundColor(.theme.accentSecondary)
                             .padding(.leading, 10)
+                            .accentColor(.theme.accentSecondary)
+                            .tint(Color.theme.accentSecondary)
+                        
  
                     }
-                    .frame(maxWidth: .infinity)
                     .padding(.horizontal)
+                    .offset(y: dropdownExpanded ? 40 : 0)
                     
                     Spacer()
                     
