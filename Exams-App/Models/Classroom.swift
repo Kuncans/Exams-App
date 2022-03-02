@@ -37,7 +37,9 @@ struct MockClassroom {
     
     static let classrooms: [Classroom] = [
         Classroom(name: "Object Oriented Programming in Java", classesAttended: 34, classesMissed: 12, classesLeft: 30),
-        Classroom(name: "Data Structures and Algorithms", classesAttended: 40, classesMissed: 2, classesLeft: 22)
+        Classroom(name: "Data Structures and Algorithms", classesAttended: 40, classesMissed: 2, classesLeft: 22),
+        Classroom(name: "Mobile Applications Development", classesAttended: 52, classesMissed: 7, classesLeft: 19),
+        Classroom(name: "Systems Software", classesAttended: 24, classesMissed: 6, classesLeft: 28)
     ]
     
     

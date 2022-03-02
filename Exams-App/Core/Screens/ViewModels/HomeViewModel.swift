@@ -14,6 +14,11 @@ final class HomeViewModel: ObservableObject {
     @Published var user: User = MockUser.user
     @Published var selectedClass: Classroom = MockClassroom.classrooms.first!
     
+    @Published var newExamClassroom: Classroom?
+    @Published var newExamModule: String = ""
+    
+    @Published var selectedTab: Int = 3
+    
     init() {
         self.exams.append(contentsOf: [MockExam.exam, MockExam.exam, MockExam.exam, MockExam.exam])
         self.classrooms = MockClassroom.classrooms

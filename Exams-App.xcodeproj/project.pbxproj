@@ -16,6 +16,7 @@
 		951504F227CE68E000C0B224 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951504F127CE68E000C0B224 /* FontExtension.swift */; };
 		951504F427CE787D00C0B224 /* AttendanceProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951504F327CE787D00C0B224 /* AttendanceProgressView.swift */; };
 		9522148E27CF92B5002DDB34 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522148D27CF92B5002DDB34 /* HomeViewModel.swift */; };
+		9522149027CF9C62002DDB34 /* NewExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522148F27CF9C62002DDB34 /* NewExamView.swift */; };
 		9563E68527CE2E61006FCC2E /* Exams_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9563E68427CE2E61006FCC2E /* Exams_AppApp.swift */; };
 		9563E68927CE2E62006FCC2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9563E68827CE2E62006FCC2E /* Assets.xcassets */; };
 		9563E68C27CE2E62006FCC2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9563E68B27CE2E62006FCC2E /* Preview Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		951504F127CE68E000C0B224 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		951504F327CE787D00C0B224 /* AttendanceProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceProgressView.swift; sourceTree = "<group>"; };
 		9522148D27CF92B5002DDB34 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9522148F27CF9C62002DDB34 /* NewExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExamView.swift; sourceTree = "<group>"; };
 		9563E68127CE2E61006FCC2E /* Exams-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exams-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9563E68427CE2E61006FCC2E /* Exams_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exams_AppApp.swift; sourceTree = "<group>"; };
 		9563E68827CE2E62006FCC2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +94,33 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		9522149127CF9C65002DDB34 /* NewExam */ = {
+			isa = PBXGroup;
+			children = (
+				9522148F27CF9C62002DDB34 /* NewExamView.swift */,
+			);
+			path = NewExam;
+			sourceTree = "<group>";
+		};
+		9522149227CF9C75002DDB34 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9522148D27CF92B5002DDB34 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9522149327CF9C9C002DDB34 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9563E69727CE3B99006FCC2E /* HomeTabView.swift */,
+				9563E6A527CE4835006FCC2E /* Dashboard */,
+				9522149127CF9C65002DDB34 /* NewExam */,
+				9563E6AA27CE4D4C006FCC2E /* Placeholder */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9563E67827CE2E61006FCC2E = {
 			isa = PBXGroup;
 			children = (
@@ -111,13 +140,13 @@
 		9563E68327CE2E61006FCC2E /* Exams-App */ = {
 			isa = PBXGroup;
 			children = (
-				951504F027CE687D00C0B224 /* Info.plist */,
-				951504E427CE671000C0B224 /* Resources */,
 				9563E68427CE2E61006FCC2E /* Exams_AppApp.swift */,
+				9563E69227CE3248006FCC2E /* Extensions */,
+				951504E427CE671000C0B224 /* Resources */,
 				9563E6A327CE482C006FCC2E /* Core */,
 				9563E69927CE3CD0006FCC2E /* Models */,
-				9563E69227CE3248006FCC2E /* Extensions */,
 				9563E68827CE2E62006FCC2E /* Assets.xcassets */,
+				951504F027CE687D00C0B224 /* Info.plist */,
 				9563E68A27CE2E62006FCC2E /* Preview Content */,
 			);
 			path = "Exams-App";
@@ -153,7 +182,6 @@
 		9563E6A327CE482C006FCC2E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				9522148D27CF92B5002DDB34 /* HomeViewModel.swift */,
 				951504DC27CE50C100C0B224 /* Components */,
 				9563E6A427CE4830006FCC2E /* Screens */,
 			);
@@ -163,9 +191,8 @@
 		9563E6A427CE4830006FCC2E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				9563E69727CE3B99006FCC2E /* HomeTabView.swift */,
-				9563E6A527CE4835006FCC2E /* Dashboard */,
-				9563E6AA27CE4D4C006FCC2E /* Placeholder */,
+				9522149327CF9C9C002DDB34 /* Views */,
+				9522149227CF9C75002DDB34 /* ViewModels */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -272,6 +299,7 @@
 				9563E68527CE2E61006FCC2E /* Exams_AppApp.swift in Sources */,
 				9563E69827CE3B9A006FCC2E /* HomeTabView.swift in Sources */,
 				9563E6AE27CE4D6C006FCC2E /* PlaceholderView.swift in Sources */,
+				9522149027CF9C62002DDB34 /* NewExamView.swift in Sources */,
 				9563E6A927CE493F006FCC2E /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

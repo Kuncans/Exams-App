@@ -34,31 +34,7 @@ struct DashboardView: View {
                                 .foregroundColor(.theme.textSecondary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            DisclosureGroup(vm.selectedClass.name, isExpanded: $dropdownExpanded) {
-                                ForEach(vm.classrooms, id: \.self) { classroom in
-                                    if vm.selectedClass.name != classroom.name {
-                                        VStack {
-                                            Divider()
-                                            
-                                            Text(classroom.name)
-                                                .foregroundColor(.theme.accentPrimary)
-                                                .padding(.vertical, 2)
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                                .onTapGesture {
-                                                    vm.selectedClass = classroom
-                                                    withAnimation {
-                                                        dropdownExpanded = false
-                                                    }
-                                                    
-                                                    
-                                                    
-                                                }
-                                        }
-                                    }
-                                }
-                            }
-                            .padding([.vertical, .trailing])
-                            .padding(.bottom, 4)
+                            classroomsList
                             
                             HStack {
                                 
@@ -148,8 +124,8 @@ extension DashboardView {
                     .font(.interMedium18)
                     .foregroundColor(.theme.textSecondary)
                 Spacer()
-                Button {
-                    print("Add Exam")
+                NavigationLink {
+                    NewExamView()
                 } label: {
                     Image(systemName: "plus")
                         .tint(Color.theme.accentSecondary)
@@ -171,6 +147,37 @@ extension DashboardView {
         .background(.white)
         .frame(maxWidth: .infinity)
     }
+    
+    private var classroomsList: some View {
+        
+        DisclosureGroup(vm.selectedClass.name, isExpanded: $dropdownExpanded) {
+            ForEach(vm.classrooms, id: \.self) { classroom in
+                if vm.selectedClass.name != classroom.name {
+                    VStack {
+                        Divider()
+                        
+                        Text(classroom.name)
+                            .foregroundColor(.theme.accentPrimary)
+                            .padding(.vertical, 2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .onTapGesture {
+                                vm.selectedClass = classroom
+                                withAnimation {
+                                    dropdownExpanded = false
+                                }
+                                
+                                
+                                
+                            }
+                    }
+                }
+            }
+        }
+        .padding([.vertical, .trailing])
+        .padding(.bottom, 4)
+        
+    }
+    
     
     private var attendanceStats: some View {
         

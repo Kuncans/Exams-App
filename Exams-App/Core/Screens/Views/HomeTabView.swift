@@ -9,11 +9,11 @@ import SwiftUI
 
 struct HomeTabView: View {
     
-    @State private var selection = 3
+    @EnvironmentObject private var vm: HomeViewModel
     
     var body: some View {
         
-        TabView(selection: $selection) {
+        TabView(selection: $vm.selectedTab) {
             PlaceholderView()
                 .tabItem {
                     Image(systemName: "swift")
@@ -35,7 +35,7 @@ struct HomeTabView: View {
                 }
                 .tag(3)
             
-            Text("Exams")
+            NewExamView()
                 .tabItem {
                     Image(systemName: "graduationcap")
                     Text("Exams")
@@ -55,5 +55,6 @@ struct HomeTabView: View {
 struct HomeTabView_Previews: PreviewProvider {
     static var previews: some View {
         HomeTabView()
+            .environmentObject(HomeViewModel())
     }
 }

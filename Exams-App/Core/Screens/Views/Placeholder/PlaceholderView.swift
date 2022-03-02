@@ -15,6 +15,10 @@ struct PlaceholderView: View {
             Color.theme.backgroundCard.edgesIgnoringSafeArea(.all)
             
             Image(systemName: "swift")
+                .resizable()
+                .renderingMode(.template)
+                .foregroundColor(Color.theme.accentSecondary)
+                .frame(width: 100, height: 100)
             
         }
     }

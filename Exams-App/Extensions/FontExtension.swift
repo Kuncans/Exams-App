@@ -15,6 +15,10 @@ extension Font {
     }
     
     //400
+    static var interRegular12: Font {
+        Font.custom("Inter-Regular", size: 12)
+    }
+    
     static var interRegular14: Font {
         Font.custom("Inter-Regular", size: 14)
     }
@@ -36,6 +40,10 @@ extension Font {
         Font.custom("Inter-Medium", size: 15)
     }
     
+    static var interMedium16: Font {
+        Font.custom("Inter-Medium", size: 16)
+    }
+    
     static var interMedium18: Font {
         Font.custom("Inter-Medium", size: 18)
     }
@@ -51,6 +59,10 @@ extension Font {
     //600
     static var interSemibold14: Font {
         Font.custom("Inter-SemiBold", size: 14)
+    }
+    
+    static var interSemibold16: Font {
+        Font.custom("Inter-SemiBold", size: 16)
     }
     
     //400
