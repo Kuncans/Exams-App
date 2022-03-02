@@ -29,12 +29,14 @@ struct NewExamView: View {
                         Color.theme.backgroundCard
                             .frame(maxWidth: .infinity)
                             .frame(height: 178)
-                            .ignoresSafeArea()
-                        
+                            .ignoresSafeArea(edges: .top)
+                            
+
                         customNavigationBar
-                        
+                            .ignoresSafeArea(edges: .top)
+
                     }
-                                        
+                                                            
                     classroom
                     
                     VStack {
@@ -58,8 +60,13 @@ struct NewExamView: View {
                     Spacer()
                     
                 }
+
                 .navigationBarHidden(true)
             }
+            .onTapGesture {
+                hideKeyboard()
+            }
+
         }
 }
 
@@ -163,12 +170,13 @@ extension NewExamView {
                 .font(.interRegular16)
                 .frame(width: 100, alignment: .leading)
                 .padding(.leading)
+            Spacer()
             
             TextField("", text: $vm.newExamModule)
                 .placeholder(Text("Enter modules here")
                                 .foregroundColor(.theme.accentSecondary), show: vm.newExamModule.isEmpty)
-                .padding(.horizontal, 20)
-                .padding(.vertical, 12)
+                .padding(.leading)
+
                 .frame(width: 230, height: 45, alignment: .leading)
                 .background(RoundedRectangle(cornerRadius: 5).fill(Color.theme.backgroundCard))
                 .font(.interRegular14)
@@ -206,10 +214,12 @@ extension NewExamView {
                 TextField("", text: $vm.newExamDateYear)
                     .placeholder(Text("   YY")
                                     .foregroundColor(.theme.accentSecondary), show: vm.newExamDateYear.isEmpty)
+                
                 Image(systemName: "calendar")
                     .renderingMode(.template)
                     .padding(.trailing)
             }
+            .keyboardType(.numberPad)
             .multilineTextAlignment(.center)
             .foregroundColor(.theme.accentSecondary)
             .frame(height: 45)
@@ -250,6 +260,7 @@ extension NewExamView {
                     .renderingMode(.template)
                     .padding(.trailing)
             }
+            .keyboardType(.numberPad)
             .multilineTextAlignment(.center)
             .foregroundColor(.theme.accentSecondary)
             .frame(height: 45)
@@ -276,7 +287,7 @@ extension NewExamView {
             HStack(spacing: 3) {
                 
                 TextField("", text: $vm.newExamDurationHour)
-                    .placeholder(Text("   HR")
+                    .placeholder(Text("     HR")
                                     .foregroundColor(.theme.accentSecondary), show: vm.newExamDurationHour.isEmpty)
                 Text("|")
                     .font(.interRegular24)
@@ -284,6 +295,7 @@ extension NewExamView {
                     .placeholder(Text("   MN")
                                     .foregroundColor(.theme.accentSecondary), show: vm.newExamDurationMins.isEmpty)
             }
+            .keyboardType(.numberPad)
             .multilineTextAlignment(.center)
             .foregroundColor(.theme.accentSecondary)
             .frame(height: 45)
@@ -310,7 +322,7 @@ extension NewExamView {
             HStack(spacing: 3) {
                 
                 TextField("", text: $vm.newExamDurationTimeframeHour)
-                    .placeholder(Text("   HR")
+                    .placeholder(Text("     HR")
                                     .foregroundColor(.theme.accentSecondary), show: vm.newExamDurationTimeframeHour.isEmpty)
                 Text("|")
                     .font(.interRegular24)
@@ -318,6 +330,7 @@ extension NewExamView {
                     .placeholder(Text("   MN")
                                     .foregroundColor(.theme.accentSecondary), show: vm.newExamDurationTimeframeMins.isEmpty)
             }
+            .keyboardType(.numberPad)
             .multilineTextAlignment(.center)
             .foregroundColor(.theme.accentSecondary)
             .frame(height: 45)
@@ -348,6 +361,7 @@ extension NewExamView {
                 .frame(height: 45)
                 .frame(maxWidth: .infinity)
                 .background(RoundedRectangle(cornerRadius: 5).fill(Color.theme.backgroundCard))
+                .keyboardType(.numberPad)
         }
         .padding(.horizontal)
         .padding(.bottom, 8)

@@ -24,4 +24,8 @@ extension View {
         self.modifier(Placeholder(placeholder: holder, show: show))
     }
     
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
 }
