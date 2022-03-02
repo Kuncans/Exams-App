@@ -43,4 +43,6 @@ final class HomeViewModel: ObservableObject {
         self.exams.append(contentsOf: [MockExam.exam, MockExam.exam, MockExam.exam, MockExam.exam])
         self.classrooms = MockClassroom.classrooms
     }
+    
+    
 }

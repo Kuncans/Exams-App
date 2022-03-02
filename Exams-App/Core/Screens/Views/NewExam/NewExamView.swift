@@ -40,6 +40,7 @@ struct NewExamView: View {
                     classroom
                     
                     VStack {
+                        
                         syllabus
                     
                         dateExam
