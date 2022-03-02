@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Classroom {
+struct Classroom: Hashable {
     
     let name: String
     let classesAttended: Int
@@ -35,7 +35,11 @@ struct Classroom {
 
 struct MockClassroom {
     
-    static let classroom = Classroom(name: "Object Oriented Programming in Java", classesAttended: 34, classesMissed: 12, classesLeft: 30)
+    static let classrooms: [Classroom] = [
+        Classroom(name: "Object Oriented Programming in Java", classesAttended: 34, classesMissed: 12, classesLeft: 30),
+        Classroom(name: "Data Structures and Algorithms", classesAttended: 40, classesMissed: 2, classesLeft: 22)
+    ]
+    
     
 }
 

@@ -15,10 +15,8 @@ struct Exam {
     let timeString: String
     let duration: String
     let timeframe: String
-    //time interval typealias?
     let marks: Int
     let category: String
-    
     let instructions: String
     let questions: [String:Bool]
     
@@ -26,7 +24,7 @@ struct Exam {
 
 struct MockExam {
     
-    static let exam = Exam(classroom: MockClassroom.classroom,
+    static let exam = Exam(classroom: MockClassroom.classrooms.first!,
                            syllabus: "MCQs",
                            dateString: "",
                            timeString: "",

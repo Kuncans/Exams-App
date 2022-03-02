@@ -9,12 +9,9 @@ import SwiftUI
 
 struct DashboardView: View {
     
-    let user: User
-    
-    let classes: [String] = [MockClassroom.classroom.name, "Data Protection Survey2", "Data Protection Survey3","Data Protection Survey4", " Divider()" ,"asdasd", "asds", "asdasfdfdfd", "sas", "mfksdfns", "asdas", "fgdfgdf", "sdf"]
+    @EnvironmentObject private var vm: HomeViewModel
     
     @State private var dropdownExpanded = false
-    @State var selectedClass = MockClassroom.classroom
     
     var body: some View {
         
@@ -37,18 +34,18 @@ struct DashboardView: View {
                                 .foregroundColor(.theme.textSecondary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            DisclosureGroup(selectedClass.name, isExpanded: $dropdownExpanded) {
-                                ForEach(classes, id: \.self) { className in
-                                    if selectedClass.name != className {
+                            DisclosureGroup(vm.selectedClass.name, isExpanded: $dropdownExpanded) {
+                                ForEach(vm.classrooms, id: \.self) { classroom in
+                                    if vm.selectedClass.name != classroom.name {
                                         VStack {
                                             Divider()
                                             
-                                            Text(className)
+                                            Text(classroom.name)
                                                 .foregroundColor(.theme.accentPrimary)
                                                 .padding(.vertical, 2)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
                                                 .onTapGesture {
-                                                    //selectedClass = className
+                                                    vm.selectedClass = classroom
                                                     withAnimation {
                                                         dropdownExpanded = false
                                                     }
@@ -67,7 +64,7 @@ struct DashboardView: View {
                                 
                                 Spacer()
                                 
-                                AttendanceProgressView(attendance: Float(selectedClass.classAttendance))
+                                AttendanceProgressView(attendance: Float(vm.selectedClass.classAttendance))
                                     .frame(width: 100, height: 100)
                                     .padding()
                                 
@@ -82,7 +79,7 @@ struct DashboardView: View {
                             HStack {
                                 Image(systemName: "bell.fill")
                                 
-                                Text("Your attendance seems to be low in \(selectedClass.classNameAbbreivation)")
+                                Text("Your attendance seems to be low in \(vm.selectedClass.classNameAbbreivation)")
                                     .font(.robotoRegular)
                             }
                             .padding(.horizontal, 18)
@@ -91,7 +88,7 @@ struct DashboardView: View {
                             .background(Color.theme.accentBlueSecondary.opacity(0.2))
                             .cornerRadius(5)
                             .padding(.bottom, 12)
-                            .opacity(selectedClass.classAttendance < 75.0 ? 1.0 : 0.0)
+                            .opacity(vm.selectedClass.classAttendance < 75.0 ? 1.0 : 0.0)
                         }
                         .padding(.horizontal, 20)
                         .padding(.top, 18)
@@ -110,7 +107,8 @@ struct DashboardView: View {
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView(user: MockUser.user)
+        DashboardView()
+            .environmentObject(HomeViewModel())
     }
 }
 
@@ -121,7 +119,7 @@ extension DashboardView {
         HStack {
             
             VStack (alignment: .leading) {
-                Text("Hello \(user.name)")
+                Text("Hello \(vm.user.name)")
                     .font(.interMedium28)
                     .foregroundColor(.theme.accentPrimary)
                 Text("Welcome to your **Dashboard**")
@@ -131,7 +129,7 @@ extension DashboardView {
             
             Spacer()
             
-            Image(user.image)
+            Image(vm.user.image)
                 .resizable()
                 .clipShape(Circle())
                 .frame(width: 40, height: 40)
@@ -185,7 +183,7 @@ extension DashboardView {
                 
                 Spacer()
                 
-                Text("\(selectedClass.classesTotal)")
+                Text("\(vm.selectedClass.classesTotal)")
                     .font(.interMedium12)
                     .foregroundColor(.black)
             }
@@ -198,7 +196,7 @@ extension DashboardView {
                 
                 Spacer()
                 
-                Text("\(selectedClass.classesAttended)")
+                Text("\(vm.selectedClass.classesAttended)")
                     .font(.interMedium12)
                     .foregroundColor(.black)
             }
@@ -211,7 +209,7 @@ extension DashboardView {
                 
                 Spacer()
                 
-                Text("\(selectedClass.classesMissed)")
+                Text("\(vm.selectedClass.classesMissed)")
                     .font(.interMedium12)
                     .foregroundColor(.black)
             }
@@ -224,7 +222,7 @@ extension DashboardView {
                 
                 Spacer()
                 
-                Text("\(selectedClass.classesLeft)")
+                Text("\(vm.selectedClass.classesLeft)")
                     .font(.interMedium12)
                     .foregroundColor(.black)
             }

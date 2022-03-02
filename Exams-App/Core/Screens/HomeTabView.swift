@@ -28,7 +28,7 @@ struct HomeTabView: View {
                 }
                 .tag(2)
             
-            DashboardView(user: MockUser.user)
+            DashboardView()
                 .tabItem {
                     Image(systemName: "squareshape.split.3x3")
                     Text("Dashboard")

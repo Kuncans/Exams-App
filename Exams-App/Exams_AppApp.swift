@@ -13,12 +13,14 @@ struct Exams_AppApp: App {
     init() {
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color.theme.accentSecondary)
         UITabBar.appearance().backgroundColor = UIColor(.white)
-        //UINavigationBar.appearance().backgroundColor = UIColor(Color.theme.backgroundCard)
     }
+    
+    @StateObject private var vm = HomeViewModel()
     
     var body: some Scene {
         WindowGroup {
-            HomeTabView()            
+            HomeTabView()
+                .environmentObject(vm)
         }
     }
 }
