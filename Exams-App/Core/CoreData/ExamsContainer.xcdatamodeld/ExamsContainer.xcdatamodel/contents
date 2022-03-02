@@ -5,9 +5,11 @@
         <attribute name="classroom" attributeType="String"/>
         <attribute name="endTime" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="marks" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="module" optional="YES" attributeType="String"/>
         <attribute name="startTime" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="timeframe" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="ExamEntity" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="ExamEntity" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>

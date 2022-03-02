@@ -135,8 +135,9 @@ extension DashboardView {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 28) {
-                    ExamCardView(exam: MockExam.exam)
-                    ExamCardView(exam: MockExam.exam)
+                    ForEach(vm.exams, id: \.self) { exam in
+                        ExamCardView(exam: exam)
+                    }
                 }
             }
             .frame(height: 180)

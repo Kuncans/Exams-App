@@ -13,7 +13,7 @@ final class HomeViewModel: ObservableObject {
     @Published var selectedTab: Int = 3
     
     // Data
-    @Published var exams: [Exam] = []
+    @Published var exams: [ExamEntity] = []
     @Published var classrooms: [Classroom] = []
     @Published var user: User = MockUser.user
     @Published var selectedClass: Classroom = MockClassroom.classrooms.first!
@@ -22,10 +22,10 @@ final class HomeViewModel: ObservableObject {
     @Published var newExamClassroom: Classroom?
     @Published var newExamModule: String = ""
     
-    @Published var newExamDateDay: String = ""
-    @Published var newExamDateMonth: String = ""
     @Published var newExamDateYear: String = ""
-    
+    @Published var newExamDateMonth: String = ""
+    @Published var newExamDateDay: String = ""
+
     @Published var newExamTimeHour: String = ""
     @Published var newExamTimeMins: String = ""
     @Published var newExamTimeSecs: String = ""
@@ -39,10 +39,69 @@ final class HomeViewModel: ObservableObject {
     @Published var newExamTotalMarks: Int?
     @Published var newExamCategory: String = ""
     
+    // Manager
+    
+    let CoreDM: CoreDataManager = CoreDataManager()
+    
     init() {
-        self.exams.append(contentsOf: [MockExam.exam, MockExam.exam, MockExam.exam, MockExam.exam])
         self.classrooms = MockClassroom.classrooms
+        getCards()
     }
+    
+    func saveNewExam() {
+        
+        var dateComponents = DateComponents()
+        dateComponents.year = Int(newExamDateYear)
+        dateComponents.month = Int(newExamDateMonth)
+        dateComponents.day = Int(newExamDateDay)
+        dateComponents.hour = Int(newExamTimeHour)
+        dateComponents.minute = Int(newExamTimeMins)
+        dateComponents.second = Int(newExamTimeSecs)
+        
+        let calender = Calendar(identifier: .gregorian)
+        let examDate = calender.date(from: dateComponents)
+        
+        let timeInterval: TimeInterval = ((Double(newExamDurationHour) ?? 0) * 60 * 60) + ((Double(newExamDurationMins) ?? 0) * 60)
+        let endDateTime = examDate?.addingTimeInterval(timeInterval)
+           
+        let exam = Exam(classroom: newExamClassroom ?? MockClassroom.room,
+                        syllabus: newExamModule,
+                        examDateTime: examDate ?? Date(),
+                        duration: "",
+                        endDateTime: endDateTime ?? Date(),
+                        marks: newExamTotalMarks ?? 0,
+                        category: newExamCategory,
+                        instructions: "",
+                        questions: ["" : true])
+        
+        CoreDM.add(exam: exam)
+        
+        self.newExamClassroom = nil
+        self.newExamModule = ""
+        self.newExamDateYear = ""
+        self.newExamDateMonth = ""
+        self.newExamDateDay = ""
+        self.newExamTimeHour = ""
+        self.newExamTimeMins = ""
+        self.newExamTimeSecs = ""
+        self.newExamDurationHour = ""
+        self.newExamDurationMins = ""
+        self.newExamDurationTimeframeHour = ""
+        self.newExamDurationTimeframeMins = ""
+        self.newExamTotalMarks = nil
+        self.newExamCategory = ""
+        
+        getCards()
+    }
+    
+    
+    func getCards() {
+        DispatchQueue.main.async {
+            self.CoreDM.getSavedExams()
+            self.exams = self.CoreDM.savedExams
+        }
+    }
+    
     
     
 }

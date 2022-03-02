@@ -16,11 +16,13 @@ extension ExamEntity {
         return NSFetchRequest<ExamEntity>(entityName: "ExamEntity")
     }
 
-    @NSManaged public var classroom: String?
-    @NSManaged public var startTime: Date?
-    @NSManaged public var endTime: Date?
+    @NSManaged public var classroom: String
+    @NSManaged public var startTime: Date
+    @NSManaged public var endTime: Date
     @NSManaged public var marks: Int64
-    @NSManaged public var category: String?
+    @NSManaged public var category: String
+    @NSManaged public var timeframe: String
+    @NSManaged public var module: String
 
 }
 

@@ -55,6 +55,10 @@ struct NewExamView: View {
                         
                         categoryExam
                         
+                        Button("Save") {
+                            vm.saveNewExam()
+                        }
+                        
                     }
                     .offset(y: dropdownExpanded ? 40 : 0)
 

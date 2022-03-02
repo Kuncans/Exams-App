@@ -11,14 +11,23 @@ struct Exam {
     
     let classroom: Classroom
     let syllabus: String
-    let dateString: String
-    let timeString: String
+    let examDateTime: Date
     let duration: String
-    let timeframe: String
+    let endDateTime: Date
     let marks: Int
     let category: String
     let instructions: String
     let questions: [String:Bool]
+    
+    var timeframe: String {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh a"
+        let hourString = formatter.string(from: examDateTime)
+        let hourEndString = formatter.string(from: endDateTime)
+        
+        return hourString + " - " + hourEndString
+    }
     
 }
 
@@ -26,10 +35,9 @@ struct MockExam {
     
     static let exam = Exam(classroom: MockClassroom.classrooms.first!,
                            syllabus: "MCQs",
-                           dateString: "",
-                           timeString: "",
+                           examDateTime: Date(),
                            duration: "",
-                           timeframe: "3 pm - 6 pm",
+                           endDateTime: Date(),
                            marks: 20,
                            category: "Internal",
                            instructions: "Take the test",

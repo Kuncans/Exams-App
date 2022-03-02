@@ -10,13 +10,13 @@ import CoreData
 
 class CoreDataManager {
     
-    private var savedExams: [ExamEntity] = []
+    var savedExams: [ExamEntity] = []
     
     let container: NSPersistentContainer
     private let containerName = "ExamsContainer"
     private let entityName = "ExamEntity"
     
-    private init() {
+    init() {
         
         container = NSPersistentContainer(name: containerName)
         container.loadPersistentStores { _, error in
@@ -27,7 +27,7 @@ class CoreDataManager {
         getSavedExams()
     }
     
-    private func getSavedExams() {
+    func getSavedExams() {
         let request = NSFetchRequest<ExamEntity>(entityName: entityName)
         do {
             savedExams = try container.viewContext.fetch(request)
@@ -36,7 +36,7 @@ class CoreDataManager {
         }
     }
     
-    private func save() {
+    func save() {
         do {
             try container.viewContext.save()
         } catch let error {
@@ -47,13 +47,17 @@ class CoreDataManager {
         getSavedExams()
     }
     
-    private func add(exam: Exam) {
+    func add(exam: Exam) {
         let entity = ExamEntity(context: container.viewContext)
         entity.category = exam.category
         entity.classroom = exam.classroom.name
         entity.marks = Int64(exam.marks)
-//        entity.endTime =
-//        entity.startTime =
+        entity.endTime = exam.endDateTime
+        entity.startTime = exam.examDateTime
+        entity.timeframe = exam.timeframe
+        entity.module = exam.syllabus
+        
+        save()
     }
     
 }

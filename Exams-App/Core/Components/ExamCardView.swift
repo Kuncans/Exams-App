@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExamCardView: View {
     
-    let exam: Exam
+    let exam: ExamEntity
     
     var body: some View {
         ZStack {
@@ -19,7 +19,7 @@ struct ExamCardView: View {
             
             VStack (spacing: 12) {
                 HStack {
-                    Text("\(exam.classroom.name)")
+                    Text(exam.classroom)
                         .font(.interMedium20)
                         .lineLimit(2)
                         .foregroundColor(.black)
@@ -35,9 +35,9 @@ struct ExamCardView: View {
                 }
                 
                 HStack {
-                    Text("\(exam.timeframe)")
+                    Text(exam.timeframe)
                     Spacer()
-                    Text("\(exam.syllabus)")
+                    Text(exam.module)
                 }
                 .font(.interMedium14)
                 .foregroundColor(.theme.textTertiary)
@@ -61,8 +61,8 @@ struct ExamCardView: View {
     }
 }
 
-struct ExamCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExamCardView(exam: MockExam.exam)
-    }
-}
+//struct ExamCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ExamCardView(exam: MockExam.exam)
+//    }
+//}
