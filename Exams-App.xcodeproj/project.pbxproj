@@ -32,6 +32,9 @@
 		95BEDB5127D006A60081A032 /* ExamsContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB4F27D006A60081A032 /* ExamsContainer.xcdatamodeld */; };
 		95BEDB5427D007820081A032 /* ExamEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB5227D007820081A032 /* ExamEntity+CoreDataClass.swift */; };
 		95BEDB5527D007820081A032 /* ExamEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB5327D007820081A032 /* ExamEntity+CoreDataProperties.swift */; };
+		95BEDB5727D1002F0081A032 /* ExamQuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB5627D1002F0081A032 /* ExamQuestionsView.swift */; };
+		95BEDB5C27D100950081A032 /* ExamDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB5B27D100950081A032 /* ExamDetails.swift */; };
+		95BEDB5F27D105910081A032 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB5E27D105910081A032 /* SectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		95BEDB5027D006A60081A032 /* ExamsContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExamsContainer.xcdatamodel; sourceTree = "<group>"; };
 		95BEDB5227D007820081A032 /* ExamEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExamEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		95BEDB5327D007820081A032 /* ExamEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExamEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		95BEDB5627D1002F0081A032 /* ExamQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamQuestionsView.swift; sourceTree = "<group>"; };
+		95BEDB5B27D100950081A032 /* ExamDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamDetails.swift; sourceTree = "<group>"; };
+		95BEDB5E27D105910081A032 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 		951504DC27CE50C100C0B224 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				95BEDB5D27D105800081A032 /* ExamQuestions */,
 				951504E027CE516700C0B224 /* ExamCardView.swift */,
 				951504F327CE787D00C0B224 /* AttendanceProgressView.swift */,
 			);
@@ -108,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				9522148F27CF9C62002DDB34 /* NewExamView.swift */,
+				95BEDB5627D1002F0081A032 /* ExamQuestionsView.swift */,
 			);
 			path = NewExam;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 		9563E69927CE3CD0006FCC2E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				95BEDB5827D100480081A032 /* ExamQuestion */,
 				9563E69A27CE3CDC006FCC2E /* Exam.swift */,
 				9563E69F27CE3D28006FCC2E /* Classroom.swift */,
 				9563E6A827CE493F006FCC2E /* User.swift */,
@@ -242,6 +251,22 @@
 				95BEDB5327D007820081A032 /* ExamEntity+CoreDataProperties.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		95BEDB5827D100480081A032 /* ExamQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				95BEDB5B27D100950081A032 /* ExamDetails.swift */,
+			);
+			path = ExamQuestion;
+			sourceTree = "<group>";
+		};
+		95BEDB5D27D105800081A032 /* ExamQuestions */ = {
+			isa = PBXGroup;
+			children = (
+				95BEDB5E27D105910081A032 /* SectionView.swift */,
+			);
+			path = ExamQuestions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,12 +346,14 @@
 			files = (
 				951504F427CE787D00C0B224 /* AttendanceProgressView.swift in Sources */,
 				951504F227CE68E000C0B224 /* FontExtension.swift in Sources */,
+				95BEDB5727D1002F0081A032 /* ExamQuestionsView.swift in Sources */,
 				951504E127CE516700C0B224 /* ExamCardView.swift in Sources */,
 				95BEDB4D27D006350081A032 /* CoreDataManager.swift in Sources */,
 				95BEDB5127D006A60081A032 /* ExamsContainer.xcdatamodeld in Sources */,
 				9563E6A027CE3D28006FCC2E /* Classroom.swift in Sources */,
 				95BEDB5427D007820081A032 /* ExamEntity+CoreDataClass.swift in Sources */,
 				9563E6A727CE4841006FCC2E /* DashboardView.swift in Sources */,
+				95BEDB5C27D100950081A032 /* ExamDetails.swift in Sources */,
 				9563E69B27CE3CDC006FCC2E /* Exam.swift in Sources */,
 				9563E69427CE3254006FCC2E /* ColorExtension.swift in Sources */,
 				9522148E27CF92B5002DDB34 /* HomeViewModel.swift in Sources */,
@@ -334,6 +361,7 @@
 				9563E69827CE3B9A006FCC2E /* HomeTabView.swift in Sources */,
 				95BEDB4A27CFD4DE0081A032 /* ViewExtension.swift in Sources */,
 				9563E6AE27CE4D6C006FCC2E /* PlaceholderView.swift in Sources */,
+				95BEDB5F27D105910081A032 /* SectionView.swift in Sources */,
 				9522149027CF9C62002DDB34 /* NewExamView.swift in Sources */,
 				9563E6A927CE493F006FCC2E /* User.swift in Sources */,
 				95BEDB5527D007820081A032 /* ExamEntity+CoreDataProperties.swift in Sources */,

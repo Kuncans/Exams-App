@@ -31,4 +31,6 @@ struct ColorTheme {
     let backgroundCard = Color("BackgroundCard")
     let backgroundText = Color("BackgroundText")
     
+    let questionBackground = Color("QuestionBackground")
+    
 }

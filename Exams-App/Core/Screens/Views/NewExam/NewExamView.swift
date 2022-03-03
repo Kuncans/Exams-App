@@ -57,6 +57,7 @@ struct NewExamView: View {
                         
                         Button("Save") {
                             vm.saveNewExam()
+                            dismiss()
                         }
                         
                     }
@@ -102,17 +103,18 @@ extension NewExamView {
             
             Spacer()
             
-            Button(action: {}) {
+            NavigationLink {
+                ExamQuestionsView()
+            } label: {
                 Text("Next")
                     .font(.interMedium16)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.theme.accentSecondary, lineWidth: 1)
+                    )
             }
-            .padding(.vertical, 8)
-            .padding(.horizontal, 12)
-            .overlay(
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color.theme.accentSecondary, lineWidth: 1)
-            )
-
         }
         .padding(.horizontal, 26)
         

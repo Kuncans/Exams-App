@@ -130,7 +130,6 @@ extension DashboardView {
                     Image(systemName: "plus")
                         .tint(Color.theme.accentSecondary)
                 }
-                
             }
             
             ScrollView(.horizontal, showsIndicators: false) {

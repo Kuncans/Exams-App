@@ -39,8 +39,10 @@ final class HomeViewModel: ObservableObject {
     @Published var newExamTotalMarks: Int?
     @Published var newExamCategory: String = ""
     
-    // Manager
+    // Exam Questions
+    @Published var sampleQuestion: ExamDetails = ExamDetails.init()
     
+    // Manager
     let CoreDM: CoreDataManager = CoreDataManager()
     
     init() {
@@ -51,7 +53,7 @@ final class HomeViewModel: ObservableObject {
     func saveNewExam() {
         
         var dateComponents = DateComponents()
-        dateComponents.year = Int(newExamDateYear)
+        dateComponents.year = 2000 + (Int(newExamDateYear) ?? 0)
         dateComponents.month = Int(newExamDateMonth)
         dateComponents.day = Int(newExamDateDay)
         dateComponents.hour = Int(newExamTimeHour)
@@ -61,7 +63,7 @@ final class HomeViewModel: ObservableObject {
         let calender = Calendar(identifier: .gregorian)
         let examDate = calender.date(from: dateComponents)
         
-        let timeInterval: TimeInterval = ((Double(newExamDurationHour) ?? 0) * 60 * 60) + ((Double(newExamDurationMins) ?? 0) * 60)
+        let timeInterval: TimeInterval = ((Double(newExamDurationTimeframeHour) ?? 0) * 60 * 60) + ((Double(newExamDurationTimeframeMins) ?? 0) * 60)
         let endDateTime = examDate?.addingTimeInterval(timeInterval)
            
         let exam = Exam(classroom: newExamClassroom ?? MockClassroom.room,
@@ -75,6 +77,13 @@ final class HomeViewModel: ObservableObject {
                         questions: ["" : true])
         
         CoreDM.add(exam: exam)
+        
+        resetNewExamValues()
+        
+        getCards()
+    }
+    
+    private func resetNewExamValues () {
         
         self.newExamClassroom = nil
         self.newExamModule = ""
@@ -91,17 +100,12 @@ final class HomeViewModel: ObservableObject {
         self.newExamTotalMarks = nil
         self.newExamCategory = ""
         
-        getCards()
     }
     
-    
-    func getCards() {
+    private func getCards() {
         DispatchQueue.main.async {
             self.CoreDM.getSavedExams()
             self.exams = self.CoreDM.savedExams
         }
     }
-    
-    
-    
 }
