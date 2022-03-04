@@ -19,8 +19,8 @@ The provided Figma UI needed to be implemented using Swift UI, with the mentione
 
 ## Known Bugs
 - Navigating to Exams tab disables NavigationLink on "Next" button
-- Questions / Sections do not update as they are changed. (Would implement class as an ObservableObject with Published variables)
-- Questions do not persist on save with the Exam model
+- Questions / Sections do not update as they are changed (would implement class as an ObservableObject with Published variables)
+- Questions do not persist on save with the Exam model (would implement one -> many relationship in CoreData model)
 
 
 ## Tech Stack
