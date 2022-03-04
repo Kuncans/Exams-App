@@ -23,7 +23,10 @@ struct ExamCardView: View {
                         .font(.interMedium20)
                         .lineLimit(2)
                         .foregroundColor(.black)
-                        .frame(width: 200, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    if exam.endTime < Date() && Date() > exam.startTime{
+                    
                     Button("Take") {
                         print("Take Exam")
                     }
@@ -31,6 +34,7 @@ struct ExamCardView: View {
                     .frame(width: 55, height: 30)
                     .background(Color.theme.accentGreen)
                     .cornerRadius(5)
+                    }
                     
                 }
                 

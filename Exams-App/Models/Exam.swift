@@ -36,37 +36,37 @@ struct MockExam {
                            syllabus: "MCQs",
                            examDateTime: Date(),
                            duration: "",
-                           endDateTime: Date(),
+                           endDateTime: Date().addingTimeInterval(12000),
                            marks: 20,
                            category: "Internal",
                            instructions: "Take the test"
                             )
     
     static let exam2 = Exam(classroom: MockClassroom.classrooms[1],
-                           syllabus: "MCQs",
-                           examDateTime: Date(),
+                           syllabus: "AQA",
+                            examDateTime: Date().addingTimeInterval(10000),
                            duration: "",
-                           endDateTime: Date(),
+                            endDateTime: Date().addingTimeInterval(20000),
                            marks: 50,
                            category: "Mock",
                            instructions: "Do your best"
                             )
     
     static let exam3 = Exam(classroom: MockClassroom.classrooms[2],
-                           syllabus: "MCQs",
-                           examDateTime: Date(),
+                           syllabus: "OCR",
+                            examDateTime: Date().addingTimeInterval(15000),
                            duration: "",
-                           endDateTime: Date(),
+                            endDateTime: Date().addingTimeInterval(25000),
                            marks: 40,
                            category: "External",
                            instructions: "Remember to revise"
                             )
     
     static let exam4 = Exam(classroom: MockClassroom.classrooms[3],
-                           syllabus: "MCQs",
-                           examDateTime: Date(),
+                           syllabus: "MSTs",
+                            examDateTime: Date().addingTimeInterval(10000),
                            duration: "",
-                           endDateTime: Date(),
+                            endDateTime: Date().addingTimeInterval(15000),
                            marks: 10,
                            category: "Internal",
                            instructions: "Score high!"
