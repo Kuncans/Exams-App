@@ -40,7 +40,7 @@ final class HomeViewModel: ObservableObject {
     @Published var newExamCategory: String = ""
     
     // Exam Questions
-    @Published var sampleQuestion: ExamDetails = ExamDetails.init()
+    @Published var exam = ExamDetails()
     
     // Manager
     let CoreDM: CoreDataManager = CoreDataManager()
@@ -73,8 +73,7 @@ final class HomeViewModel: ObservableObject {
                         endDateTime: endDateTime ?? Date(),
                         marks: newExamTotalMarks ?? 0,
                         category: newExamCategory,
-                        instructions: "",
-                        questions: ["" : true])
+                        instructions: "")
         
         CoreDM.add(exam: exam)
         

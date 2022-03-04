@@ -25,6 +25,10 @@ class CoreDataManager {
             }
         }
         getSavedExams()
+        add(exam: MockExam.exam)
+        add(exam: MockExam.exam2)
+        add(exam: MockExam.exam3)
+        add(exam: MockExam.exam4)
     }
     
     func getSavedExams() {

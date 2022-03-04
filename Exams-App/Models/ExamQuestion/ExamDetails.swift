@@ -13,34 +13,41 @@ class ExamDetails {
     
     init() {
         self.instructions = ""
-        self.sections = []
+        self.sections = [Section()]
     }
 }
 
-class Section {
+class Section: Identifiable {
+    let id = UUID().uuidString
+    
     var title: String
-    var description: String?
+    var description: String
     var questions: [Question]
     
     init() {
         self.title = ""
-        self.questions = []
+        self.description = ""
+        self.questions = [Question()]
     }
 }
 
-class Question {
-       
-    var question: String
-    var options: [String]
+class Question: Identifiable {
+    let id = UUID().uuidString
+    var title: String
+    var options: [Option]
     var correctOption: String?
     
     init() {
-        self.question = ""
-        self.options = []
+        self.title = ""
+        self.options = [Option(text: "")]
     }
+}
+
+class Option: Identifiable {
+    let id = UUID().uuidString
+    var text: String
     
-    private func addOption (str: [String]) {
-        options.append(contentsOf: str)
+    init(text: String) {
+        self.text = text
     }
-    
 }

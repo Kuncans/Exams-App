@@ -35,6 +35,8 @@
 		95BEDB5727D1002F0081A032 /* ExamQuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB5627D1002F0081A032 /* ExamQuestionsView.swift */; };
 		95BEDB5C27D100950081A032 /* ExamDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB5B27D100950081A032 /* ExamDetails.swift */; };
 		95BEDB5F27D105910081A032 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB5E27D105910081A032 /* SectionView.swift */; };
+		95BEDB6127D123C60081A032 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB6027D123C60081A032 /* QuestionView.swift */; };
+		95BEDB6327D125530081A032 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEDB6227D125530081A032 /* QuestionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		95BEDB5627D1002F0081A032 /* ExamQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamQuestionsView.swift; sourceTree = "<group>"; };
 		95BEDB5B27D100950081A032 /* ExamDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamDetails.swift; sourceTree = "<group>"; };
 		95BEDB5E27D105910081A032 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		95BEDB6027D123C60081A032 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		95BEDB6227D125530081A032 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				95BEDB5E27D105910081A032 /* SectionView.swift */,
+				95BEDB6027D123C60081A032 /* QuestionView.swift */,
+				95BEDB6227D125530081A032 /* QuestionCell.swift */,
 			);
 			path = ExamQuestions;
 			sourceTree = "<group>";
@@ -362,8 +368,10 @@
 				95BEDB4A27CFD4DE0081A032 /* ViewExtension.swift in Sources */,
 				9563E6AE27CE4D6C006FCC2E /* PlaceholderView.swift in Sources */,
 				95BEDB5F27D105910081A032 /* SectionView.swift in Sources */,
+				95BEDB6127D123C60081A032 /* QuestionView.swift in Sources */,
 				9522149027CF9C62002DDB34 /* NewExamView.swift in Sources */,
 				9563E6A927CE493F006FCC2E /* User.swift in Sources */,
+				95BEDB6327D125530081A032 /* QuestionCell.swift in Sources */,
 				95BEDB5527D007820081A032 /* ExamEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

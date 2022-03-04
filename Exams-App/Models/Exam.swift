@@ -17,7 +17,6 @@ struct Exam {
     let marks: Int
     let category: String
     let instructions: String
-    let questions: [String:Bool]
     
     var timeframe: String {
         
@@ -33,14 +32,44 @@ struct Exam {
 
 struct MockExam {
     
-    static let exam = Exam(classroom: MockClassroom.classrooms.first!,
+    static let exam = Exam(classroom: MockClassroom.classrooms[0    ],
                            syllabus: "MCQs",
                            examDateTime: Date(),
                            duration: "",
                            endDateTime: Date(),
                            marks: 20,
                            category: "Internal",
-                           instructions: "Take the test",
-                           questions: ["Option 1": true])
+                           instructions: "Take the test"
+                            )
+    
+    static let exam2 = Exam(classroom: MockClassroom.classrooms[1],
+                           syllabus: "MCQs",
+                           examDateTime: Date(),
+                           duration: "",
+                           endDateTime: Date(),
+                           marks: 50,
+                           category: "Mock",
+                           instructions: "Do your best"
+                            )
+    
+    static let exam3 = Exam(classroom: MockClassroom.classrooms[2],
+                           syllabus: "MCQs",
+                           examDateTime: Date(),
+                           duration: "",
+                           endDateTime: Date(),
+                           marks: 40,
+                           category: "External",
+                           instructions: "Remember to revise"
+                            )
+    
+    static let exam4 = Exam(classroom: MockClassroom.classrooms[3],
+                           syllabus: "MCQs",
+                           examDateTime: Date(),
+                           duration: "",
+                           endDateTime: Date(),
+                           marks: 10,
+                           category: "Internal",
+                           instructions: "Score high!"
+                            )
     
 }
