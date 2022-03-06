@@ -5,6 +5,8 @@ For this project, I was given a mock brief to complete within a 72hr timeframe.
 
 The provided Figma UI needed to be implemented using Swift UI, with the mentioned functionalities.
 
+## Screenshots
+![App Screenshot](http://imageshack.com/a/img924/4771/1P6d3F.png)
 
 ## Features
 
@@ -30,8 +32,6 @@ The provided Figma UI needed to be implemented using Swift UI, with the mentione
 **User Interface:** SwiftUI 
 
 
-## Screenshots
-![App Screenshot](http://imageshack.com/a/img924/4771/1P6d3F.png)
 
 
 
